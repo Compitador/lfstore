@@ -5,18 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Serviços - LF Store</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("mobile-menu");
+            menu.classList.toggle("hidden");
+        }
+    </script>
 </head>
 <body class="bg-white text-gray-800">
     <!-- Cabeçalho com Menu -->
     <header class="bg-red-600 text-white shadow-md">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold">LF Store</h1>
-            <nav class="space-x-6 text-lg">
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex space-x-6 text-lg">
                 <a href="index.html" class="hover:underline">Início</a>
                 <a href="sobre.html" class="hover:underline">Sobre</a>
                 <a href="servicos.html" class="underline font-semibold">Serviços</a>
                 <a href="contato.html" class="hover:underline">Contato</a>
             </nav>
+            <!-- Botão Menu Mobile -->
+            <button class="md:hidden" onclick="toggleMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 text-lg">
+            <a href="index.html" class="block hover:underline">Início</a>
+            <a href="sobre.html" class="block hover:underline">Sobre</a>
+            <a href="servicos.html" class="block underline font-semibold">Serviços</a>
+            <a href="contato.html" class="block hover:underline">Contato</a>
         </div>
     </header>
 
@@ -24,79 +44,25 @@
     <section class="container mx-auto px-4 py-12">
         <h2 class="text-3xl lg:text-4xl font-bold text-center mb-10 text-red-600">Nossos Serviços</h2>
         <div class="grid gap-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-            <!-- Serviço 1: Formatação de PC -->
-                <div class="service-card bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl lg:text-2xl font-semibold mb-3">Formatação de PC</h3>
-                    <p class="text-lg lg:text-xl mb-4">Reinstalação completa do sistema operacional com backup de dados e instalação de drivers.</p>
-                    <a href="https://wa.me/5598992151120?text=Quero agendar formatação de PC!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar formatação de PC via WhatsApp">Agendar</a>
-                </div>
-                <!-- Serviço 2: Upgrade de Hardware -->
-                <div class="service-card bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl lg:text-2xl font-semibold mb-3">Upgrade de Hardware</h3>
-                    <p class="text-lg lg:text-xl mb-4">Troca ou adição de RAM, SSD, placa de vídeo e outros componentes para melhorar o desempenho.</p>
-                    <a href="https://wa.me/5598992151120?text=Quero agendar upgrade de hardware!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar upgrade de hardware via WhatsApp">.Raw
-                    </a>
-                </div>
-                <!-- Serviço 3: Limpeza Interna -->
-                <div class="service-card bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl lg:text-2xl font-semibold mb-3">Limpeza Interna</h3>
-                    <p class="text-lg lg:text-xl mb-4">Limpeza completa de poeira e substituição de pasta térmica para evitar superaquecimento.</p>
-                    <a href="https://wa.me/5598992151120?text=Quero agendar limpeza interna!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar limpeza interna via WhatsApp">Agendar</a>
-                </div>
-                <!-- Serviço 4: Configuração de Rede -->
-                <div class="service-card bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl lg:text-2xl font-semibold mb-3">Configuração de Rede</h3>
-                    <p class="text-lg lg:text-xl mb-4">Instalação e configuração de roteadores, extensores Wi-Fi e redes cabeadas.</p>
-                    <a href="https://wa.me/5598992151120?text=Quero agendar configuração de rede!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar configuração de rede via WhatsApp">Agendar</a>
-                </div>
-                <!-- Serviço 5: Instalação de Impressoras -->
-                <div class="service-card bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl lg:text-2xl font-semibold mb-3">Instalação de Impressoras</h3>
-                    <p class="text-lg lg:text-xl mb-4">Configuração de impressoras em rede ou USB, com instalação de drivers e testes de impressão.</p>
-                    <a href="https://wa.me/5598992151120?text=Quero agendar instalação de impressora!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar instalação de impressora via WhatsApp">Agendar</a>
-                </div>
-                <!-- Serviço 6: Reinstalação de Drivers -->
-                <div class="service-card bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl lg:text-2xl font-semibold mb-3">Reinstalação de Drivers</h3>
-                    <p class="text-lg lg:text-xl mb-4">Atualização ou reinstalação de drivers para garantir o funcionamento correto de dispositivos.</p>
-                    <a href="https://wa.me/5598992151120?text=Quero agendar reinstalação de drivers!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar reinstalação de drivers via WhatsApp">Agendar</a>
-                </div>
-                <!-- Serviço 7: Remoção de Vírus -->
-                <div class="service-card bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl lg:text-2xl font-semibold mb-3">Remoção de Vírus</h3>
-                    <p class="text-lg lg:text-xl mb-4">Escaneamento e eliminação de malwares, vírus e spywares, com instalação de antivírus.</p>
-                    <a href="https://wa.me/5598992151120?text=Quero agendar remoção de vírus!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar remoção de vírus via WhatsApp">Agendar</a>
-                </div>
-                <!-- Serviço 8: Configuração de E-mails -->
-                <div class="service-card bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl lg:text-2xl font-semibold mb-3">Configuração de E-mails</h3>
-                    <p class="text-lg lg:text-xl mb-4">Configuração de contas de e-mail em clientes como Outlook ou Thunderbird.</p>
-                    <a href="https://wa.me/5598992151120?text=Quero agendar configuração de e-mails!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar configuração de e-mails via WhatsApp">Agendar</a>
-                </div>
-                <!-- Serviço 9: Manutenção de Servidores -->
-                <div class="service-card bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl lg:text-2xl font-semibold mb-3">Manutenção de Servidores</h3>
-                    <p class="text-lg lg:text-xl mb-4">Monitoramento, atualização e manutenção de servidores para empresas.</p>
-                    <a href="https://wa.me/5598992151120?text=Quero agendar manutenção de servidores!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar manutenção de servidores via WhatsApp">Agendar</a>
-                </div>
-                <!-- Serviço 10: Suporte Técnico Remoto -->
-                <div class="service-card bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl lg:text-2xl font-semibold mb-3">Suporte Técnico Remoto</h3>
-                    <p class="text-lg lg:text-xl mb-4">Assistência técnica via acesso remoto para resolução de problemas em tempo real.</p>
-                    <a href="https://wa.me/5598992151120?text=Quero agendar suporte técnico remoto!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar suporte técnico remoto via WhatsApp">Agendar</a>
-                </div>
-                <!-- Serviço 11: Consultoria em TI -->
-                <div class="service-card bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl lg:text-2xl font-semibold mb-3">Consultoria em TI</h3>
-                    <p class="text-lg lg:text-xl mb-4">Planejamento e otimização de infraestrutura de TI para pequenas e médias empresas.</p>
-                    <a href="https://wa.me/5598992151120?text=Quero agendar consultoria em TI!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar consultoria em TI via WhatsApp">Agendar</a>
-                </div>
-                <!-- Serviço 12: Configuração de Backup -->
-                <div class="service-card bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl lg:text-2xl font-semibold mb-3">Configuração de Backup</h3>
-                    <p class="text-lg lg:text-xl mb-4">Implementação de sistemas de backup automático em nuvem ou dispositivos locais.</p>
-                    <a href="https://wa.me/5598992151120?text=Quero agendar configuração de backup!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar configuração de backup via WhatsApp">Agendar</a>
-                </div>
+            <!-- Serviço 1: Formatação -->
+            <div class="bg-gray-100 p-8 rounded-lg shadow-lg text-center">
+                <h3 class="text-xl lg:text-2xl font-semibold mb-3">Formatação de Computadores</h3>
+                <p class="text-lg lg:text-xl mb-4">Deixe seu PC como novo! Formatamos e otimizamos seu sistema com backup completo.</p>
+                <a href="https://wa.me/5598992151120?text=Quero agendar uma formatação!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition">Agendar</a>
+            </div>
+
+            <!-- Serviço 2: Upgrade de Hardware -->
+            <div class="bg-gray-100 p-8 rounded-lg shadow-lg text-center">
+                <h3 class="text-xl lg:text-2xl font-semibold mb-3">Upgrade de Hardware</h3>
+                <p class="text-lg lg:text-xl mb-4">Troca ou adição de RAM, SSD, placa de vídeo e outros componentes para melhorar o desempenho.</p>
+                <a href="https://wa.me/5598992151120?text=Quero agendar upgrade de hardware!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition">Agendar</a>
+            </div>
+
+            <!-- Serviço 3: Manutenção Preventiva -->
+            <div class="bg-gray-100 p-8 rounded-lg shadow-lg text-center">
+                <h3 class="text-xl lg:text-2xl font-semibold mb-3">Manutenção Preventiva</h3>
+                <p class="text-lg lg:text-xl mb-4">Limpeza interna, verificação de componentes e testes de performance para evitar problemas futuros.</p>
+                <a href="https://wa.me/5598992151120?text=Quero agendar uma manutenção preventiva!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition">Agendar</a>
             </div>
         </div>
     </section>
