@@ -1,75 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Serviços - LF Store</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById("mobile-menu");
-            menu.classList.toggle("hidden");
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Serviços - LF Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobile-menu");
+      menu.classList.toggle("hidden");
+    }
+  </script>
 </head>
 <body class="bg-white text-gray-800">
-    <!-- Cabeçalho com Menu -->
-    <header class="bg-red-600 text-white shadow-md">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">LF Store</h1>
-            <!-- Menu Desktop -->
-            <nav class="hidden md:flex space-x-6 text-lg">
-                <a href="index.html" class="hover:underline">Início</a>
-                <a href="sobre.html" class="hover:underline">Sobre</a>
-                <a href="servicos.html" class="underline font-semibold">Serviços</a>
-                <a href="contato.html" class="hover:underline">Contato</a>
-            </nav>
-            <!-- Botão Menu Mobile -->
-            <button class="md:hidden" onclick="toggleMenu()">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
-        </div>
-        <!-- Menu Mobile -->
-        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 text-lg">
-            <a href="index.html" class="block hover:underline">Início</a>
-            <a href="sobre.html" class="block hover:underline">Sobre</a>
-            <a href="servicos.html" class="block underline font-semibold">Serviços</a>
-            <a href="contato.html" class="block hover:underline">Contato</a>
-        </div>
-    </header>
 
-    <!-- Seção de Serviços -->
-    <section class="container mx-auto px-4 py-12">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-10 text-red-600">Nossos Serviços</h2>
-        <div class="grid gap-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-            <!-- Serviço 1: Formatação -->
-            <div class="bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-                <h3 class="text-xl lg:text-2xl font-semibold mb-3">Formatação de Computadores</h3>
-                <p class="text-lg lg:text-xl mb-4">Deixe seu PC como novo! Formatamos e otimizamos seu sistema com backup completo.</p>
-                <a href="https://wa.me/5598992151120?text=Quero agendar uma formatação!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition">Agendar</a>
-            </div>
+  <!-- MENU -->
+  <header class="bg-red-600 text-white shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img src="logo.png" alt="Logo" class="h-10 w-10 object-contain"/> <!-- troque "logo.png" pela sua imagem -->
+        <h1 class="text-2xl font-bold">LF Store</h1>
+      </div>
 
-            <!-- Serviço 2: Upgrade de Hardware -->
-            <div class="bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-                <h3 class="text-xl lg:text-2xl font-semibold mb-3">Upgrade de Hardware</h3>
-                <p class="text-lg lg:text-xl mb-4">Troca ou adição de RAM, SSD, placa de vídeo e outros componentes para melhorar o desempenho.</p>
-                <a href="https://wa.me/5598992151120?text=Quero agendar upgrade de hardware!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition">Agendar</a>
-            </div>
+      <!-- Menu Desktop -->
+      <nav class="hidden md:flex space-x-6 text-lg">
+        <a href="index.html" class="flex items-center hover:underline"><span class="mr-1">🏠</span>Início</a>
+        <a href="sobre.html" class="flex items-center hover:underline"><span class="mr-1">ℹ️</span>Sobre</a>
+        <a href="servicos.html" class="flex items-center underline font-semibold"><span class="mr-1">🛠️</span>Serviços</a>
+        <a href="contato.html" class="flex items-center hover:underline"><span class="mr-1">📞</span>Contato</a>
+      </nav>
 
-            <!-- Serviço 3: Manutenção Preventiva -->
-            <div class="bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-                <h3 class="text-xl lg:text-2xl font-semibold mb-3">Manutenção Preventiva</h3>
-                <p class="text-lg lg:text-xl mb-4">Limpeza interna, verificação de componentes e testes de performance para evitar problemas futuros.</p>
-                <a href="https://wa.me/5598992151120?text=Quero agendar uma manutenção preventiva!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition">Agendar</a>
-            </div>
-        </div>
-    </section>
+      <!-- Botão Mobile -->
+      <button class="md:hidden" onclick="toggleMenu()" aria-label="Abrir menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
 
-    <!-- Rodapé -->
-    <footer class="bg-gray-200 py-6 mt-12 text-center text-gray-600">
-        <p>&copy; 2025 LF Store. Todos os direitos reservados.</p>
-    </footer>
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 text-lg">
+      <a href="index.html" class="block flex items-center hover:underline"><span class="mr-1">🏠</span>Início</a>
+      <a href="sobre.html" class="block flex items-center hover:underline"><span class="mr-1">ℹ️</span>Sobre</a>
+      <a href="servicos.html" class="block flex items-center underline font-semibold"><span class="mr-1">🛠️</span>Serviços</a>
+      <a href="contato.html" class="block flex items-center hover:underline"><span class="mr-1">📞</span>Contato</a>
+    </div>
+  </header>
+
+  <!-- Seção de Serviços -->
+  <section class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl lg:text-4xl font-bold text-center mb-10 text-red-600">Nossos Serviços</h2>
+    <div class="grid gap-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+      <!-- Serviço 1 -->
+      <div class="bg-gray-100 p-8 rounded-lg shadow-lg text-center">
+        <h3 class="text-xl lg:text-2xl font-semibold mb-3">Formatação de Computadores</h3>
+        <p class="text-lg lg:text-xl mb-4">Deixe seu PC como novo! Formatamos e otimizamos seu sistema com backup completo.</p>
+        <a href="https://wa.me/5598992151120?text=Quero agendar uma formatação!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition">Agendar</a>
+      </div>
+
+      <!-- Serviço 2 -->
+      <div class="bg-gray-100 p-8 rounded-lg shadow-lg text-center">
+        <h3 class="text-xl lg:text-2xl font-semibold mb-3">Upgrade de Hardware</h3>
+        <p class="text-lg lg:text-xl mb-4">Troca ou adição de RAM, SSD, placa de vídeo e outros componentes para melhorar o desempenho.</p>
+        <a href="https://wa.me/5598992151120?text=Quero agendar upgrade de hardware!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition">Agendar</a>
+      </div>
+
+      <!-- Serviço 3 -->
+      <div class="bg-gray-100 p-8 rounded-lg shadow-lg text-center">
+        <h3 class="text-xl lg:text-2xl font-semibold mb-3">Manutenção Preventiva</h3>
+        <p class="text-lg lg:text-xl mb-4">Limpeza interna, verificação de componentes e testes de performance para evitar problemas futuros.</p>
+        <a href="https://wa.me/5598992151120?text=Quero agendar uma manutenção preventiva!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition">Agendar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-gray-200 py-6 mt-12 text-center text-gray-600">
+    <p>&copy; 2025 LF Store. Todos os direitos reservados.</p>
+  </footer>
+
 </body>
 </html>
