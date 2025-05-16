@@ -1,84 +1,193 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Serviços - LF Store</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById("mobile-menu");
-      menu.classList.toggle("hidden");
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LF Store - Sua loja de tecnologia em São Luís, MA." />
+  <meta name="author" content="LF Store" />
+  <title>LF Store - Home</title>
+  <link rel="icon" href="https://via.placeholder.com/32.png?text=LF" type="image/png" />
+
+  <!-- Tailwind & Bibliotecas -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .nav-links.hidden { display: none; }
+    .nav-links.active { display: flex; }
+    .photo-placeholder { max-width: 300px; width: 100%; height: auto; }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        position: fixed;
+        top: 64px;
+        right: 1rem;
+        width: 220px;
+        flex-direction: column;
+        background-color: #dc2626;
+        padding: 0.75rem;
+        z-index: 1000;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
     }
-  </script>
+  </style>
 </head>
-<body class="bg-white text-gray-800">
 
-  <!-- MENU -->
-  <header class="bg-red-600 text-white shadow-md">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <!-- Logo -->
-      <div class="flex items-center space-x-2">
-        <img src="logo.png" alt="Logo" class="h-10 w-10 object-contain"/> <!-- troque "logo.png" pela sua imagem -->
-        <h1 class="text-2xl font-bold">LF Store</h1>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-red-600 text-white fixed w-full top-0 z-50 shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center max-w-screen-xl">
+      <div class="flex items-center gap-2">
+        <img src="images/logo.png" alt="LF Store" class="w-8 h-8" />
+        <span class="text-xl font-bold hidden sm:inline">LF Store</span>
       </div>
-
-      <!-- Menu Desktop -->
-      <nav class="hidden md:flex space-x-6 text-lg">
-        <a href="index.html" class="flex items-center hover:underline"><span class="mr-1">🏠</span>Início</a>
-        <a href="sobre.html" class="flex items-center hover:underline"><span class="mr-1">ℹ️</span>Sobre</a>
-        <a href="servicos.html" class="flex items-center underline font-semibold"><span class="mr-1">🛠️</span>Serviços</a>
-        <a href="contato.html" class="flex items-center hover:underline"><span class="mr-1">📞</span>Contato</a>
-      </nav>
-
-      <!-- Botão Mobile -->
-      <button class="md:hidden" onclick="toggleMenu()" aria-label="Abrir menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      <div class="hidden sm:flex gap-6">
+        <a href="index.html" class="hover:text-gray-200">Home</a>
+        <a href="servicos.html" class="hover:text-gray-200">Serviços</a>
+        <a href="vendas.html" class="hover:text-gray-200">Vendas</a>
+        <a href="contato.html" class="hover:text-gray-200">Contato</a>
+      </div>
+      <button class="menu-toggle sm:hidden" aria-label="Abrir menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
 
     <!-- Menu Mobile -->
-    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 text-lg">
-      <a href="index.html" class="block flex items-center hover:underline"><span class="mr-1">🏠</span>Início</a>
-      <a href="sobre.html" class="block flex items-center hover:underline"><span class="mr-1">ℹ️</span>Sobre</a>
-      <a href="servicos.html" class="block flex items-center underline font-semibold"><span class="mr-1">🛠️</span>Serviços</a>
-      <a href="contato.html" class="block flex items-center hover:underline"><span class="mr-1">📞</span>Contato</a>
+    <div class="nav-links hidden sm:hidden flex-col absolute right-4 bg-red-600 text-white rounded-md">
+      <a href="index.html" class="flex items-center gap-2 px-4 py-2 hover:bg-red-700">
+        <img src="https://img.icons8.com/material/24/ffffff/home--v1.png" alt="">Home
+      </a>
+      <a href="servicos.html" class="flex items-center gap-2 px-4 py-2 hover:bg-red-700">
+        <img src="https://img.icons8.com/ios-glyphs/24/ffffff/maintenance.png" alt="">Serviços
+      </a>
+      <a href="vendas.html" class="flex items-center gap-2 px-4 py-2 hover:bg-red-700">
+        <img src="https://img.icons8.com/material/24/ffffff/shopping-cart.png" alt="">Vendas
+      </a>
+      <a href="contato.html" class="flex items-center gap-2 px-4 py-2 hover:bg-red-700">
+        <img src="https://img.icons8.com/material/24/ffffff/phone.png" alt="">Contato
+      </a>
     </div>
-  </header>
+  </nav>
+    <!-- Serviços Section -->
+    <section class="py-20 bg-white min-h-screen mt-16 sm:mt-0" role="region" aria-label="Nossos serviços">
+        <div class="container mx-auto px-2 max-w-screen-md">
+            <h2 class="text-4xl font-bold text-center text-red-600 mb-12">Nossos Serviços</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Serviço 1: Formatação de PC -->
+                <div class="service-card bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+                    <h3 class="text-xl font-semibold mb-2">Formatação de PC</h3>
+                    <p class="text-lg mb-4">Reinstalação completa do sistema operacional com backup de dados e instalação de drivers.</p>
+                    <a href="https://wa.me/5598992151120?text=Quero agendar formatação de PC!" target="_blank" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar formatação de PC via WhatsApp">Agendar</a>
+                </div>
+                <!-- Serviço 2: Upgrade de Hardware -->
+                <div class="service-card bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+                    <h3 class="text-xl font-semibold mb-2">Upgrade de Hardware</h3>
+                    <p class="text-lg mb-4">Troca ou adição de RAM, SSD, placa de vídeo e outros componentes para melhorar o desempenho.</p>
+                    <a href="https://wa.me/5598992151120?text=Quero agendar upgrade de hardware!" target="_blank" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar upgrade de hardware via WhatsApp">Agendar</a>
+                </div>
+                <!-- Serviço 3: Limpeza Interna -->
+                <div class="service-card bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+                    <h3 class="text-xl font-semibold mb-2">Limpeza Interna</h3>
+                    <p class="text-lg mb-4">Limpeza completa de poeira e substituição de pasta térmica para evitar superaquecimento.</p>
+                    <a href="https://wa.me/5598992151120?text=Quero agendar limpeza interna!" target="_blank" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar limpeza interna via WhatsApp">Agendar</a>
+                </div>
+                <!-- Serviço 4: Configuração de Rede -->
+                <div class="service-card bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+                    <h3 class="text-xl font-semibold mb-2">Configuração de Rede</h3>
+                    <p class="text-lg mb-4">Instalação e configuração de roteadores, extensores Wi-Fi e redes cabeadas.</p>
+                    <a href="https://wa.me/5598992151120?text=Quero agendar configuração de rede!" target="_blank" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar configuração de rede via WhatsApp">Agendar</a>
+                </div>
+                <!-- Serviço 5: Instalação de Impressoras -->
+                <div class="service-card bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+                    <h3 class="text-xl font-semibold mb-2">Instalação de Impressoras</h3>
+                    <p class="text-lg mb-4">Configuração de impressoras em rede ou USB, com instalação de drivers e testes de impressão.</p>
+                    <a href="https://wa.me/5598992151120?text=Quero agendar instalação de impressora!" target="_blank" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar instalação de impressora via WhatsApp">Agendar</a>
+                </div>
+                <!-- Serviço 6: Reinstalação de Drivers -->
+                <div class="service-card bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+                    <h3 class="text-xl font-semibold mb-2">Reinstalação de Drivers</h3>
+                    <p class="text-lg mb-4">Atualização ou reinstalação de drivers para garantir o funcionamento correto de dispositivos.</p>
+                    <a href="https://wa.me/5598992151120?text=Quero agendar reinstalação de drivers!" target="_blank" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar reinstalação de drivers via WhatsApp">Agendar</a>
+                </div>
+                <!-- Serviço 7: Remoção de Vírus -->
+                <div class="service-card bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+                    <h3 class="text-xl font-semibold mb-2">Remoção de Vírus</h3>
+                    <p class="text-lg mb-4">Escaneamento e eliminação de malwares, vírus e spywares, com instalação de antivírus.</p>
+                    <a href="https://wa.me/5598992151120?text=Quero agendar remoção de vírus!" target="_blank" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar remoção de vírus via WhatsApp">Agendar</a>
+                </div>
+                <!-- Serviço 8: Configuração de E-mails -->
+                <div class="service-card bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+                    <h3 class="text-xl font-semibold mb-2">Configuração de E-mails</h3>
+                    <p class="text-lg mb-4">Configuração de contas de e-mail em clientes como Outlook ou Thunderbird.</p>
+                    <a href="https://wa.me/5598992151120?text=Quero agendar configuração de e-mails!" target="_blank" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar configuração de e-mails via WhatsApp">Agendar</a>
+                </div>
+                <!-- Serviço 9: Manutenção de Servidores -->
+                <div class="service-card bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+                    <h3 class="text-xl font-semibold mb-2">Manutenção de Servidores</h3>
+                    <p class="text-lg mb-4">Monitoramento, atualização e manutenção de servidores para empresas.</p>
+                    <a href="https://wa.me/5598992151120?text=Quero agendar manutenção de servidores!" target="_blank" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar manutenção de servidores via WhatsApp">Agendar</a>
+                </div>
+                <!-- Serviço 10: Suporte Técnico Remoto -->
+                <div class="service-card bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+                    <h3 class="text-xl font-semibold mb-2">Suporte Técnico Remoto</h3>
+                    <p class="text-lg mb-4">Assistência técnica via acesso remoto para resolução de problemas em tempo real.</p>
+                    <a href="https://wa.me/5598992151120?text=Quero agendar suporte técnico remoto!" target="_blank" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar suporte técnico remoto via WhatsApp">Agendar</a>
+                </div>
+                <!-- Serviço 11: Consultoria em TI -->
+                <div class="service-card bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+                    <h3 class="text-xl font-semibold mb-2">Consultoria em TI</h3>
+                    <p class="text-lg mb-4">Planejamento e otimização de infraestrutura de TI para pequenas e médias empresas.</p>
+                    <a href="https://wa.me/5598992151120?text=Quero agendar consultoria em TI!" target="_blank" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar consultoria em TI via WhatsApp">Agendar</a>
+                </div>
+                <!-- Serviço 12: Configuração de Backup -->
+                <div class="service-card bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+                    <h3 class="text-xl font-semibold mb-2">Configuração de Backup</h3>
+                    <p class="text-lg mb-4">Implementação de sistemas de backup automático em nuvem ou dispositivos locais.</p>
+                    <a href="https://wa.me/5598992151120?text=Quero agendar configuração de backup!" target="_blank" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700 transition" aria-label="Agendar configuração de backup via WhatsApp">Agendar</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Seção de Serviços -->
-  <section class="container mx-auto px-4 py-12">
-    <h2 class="text-3xl lg:text-4xl font-bold text-center mb-10 text-red-600">Nossos Serviços</h2>
-    <div class="grid gap-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-      <!-- Serviço 1 -->
-      <div class="bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-        <h3 class="text-xl lg:text-2xl font-semibold mb-3">Formatação de Computadores</h3>
-        <p class="text-lg lg:text-xl mb-4">Deixe seu PC como novo! Formatamos e otimizamos seu sistema com backup completo.</p>
-        <a href="https://wa.me/5598992151120?text=Quero agendar uma formatação!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition">Agendar</a>
-      </div>
 
-      <!-- Serviço 2 -->
-      <div class="bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-        <h3 class="text-xl lg:text-2xl font-semibold mb-3">Upgrade de Hardware</h3>
-        <p class="text-lg lg:text-xl mb-4">Troca ou adição de RAM, SSD, placa de vídeo e outros componentes para melhorar o desempenho.</p>
-        <a href="https://wa.me/5598992151120?text=Quero agendar upgrade de hardware!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition">Agendar</a>
-      </div>
+    <!-- Footer -->
+    <footer class="bg-red-600 text-white py-6">
+        <div class="container mx-auto px-2 text-center max-w-screen-sm">
+            <p>© 2025 LF Store. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
-      <!-- Serviço 3 -->
-      <div class="bg-gray-100 p-8 rounded-lg shadow-lg text-center">
-        <h3 class="text-xl lg:text-2xl font-semibold mb-3">Manutenção Preventiva</h3>
-        <p class="text-lg lg:text-xl mb-4">Limpeza interna, verificação de componentes e testes de performance para evitar problemas futuros.</p>
-        <a href="https://wa.me/5598992151120?text=Quero agendar uma manutenção preventiva!" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition">Agendar</a>
-      </div>
-    </div>
-  </section>
+    <!-- Scripts -->
+    <script>
+        // Menu Hambúrguer
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
-  <!-- Rodapé -->
-  <footer class="bg-gray-200 py-6 mt-12 text-center text-gray-600">
-    <p>&copy; 2025 LF Store. Todos os direitos reservados.</p>
-  </footer>
 
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from("nav", { duration: 0.2, y: -100, opacity: 0, ease: "power2.out" });
+        gsap.from(".whatsapp-btn", { duration: 0.2, opacity: 0, x: 100, delay: 1 });
+        const serviceCards = document.querySelectorAll(".service-card");
+        serviceCards.forEach((card) => {
+            gsap.from(card, {
+                duration: 0.2,
+                opacity: 0,
+                y: 50,
+                scrollTrigger: { trigger: card, start: "top 80%" },
+            });
+        });
+    </script>
 </body>
 </html>
